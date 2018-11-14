@@ -5,7 +5,8 @@
   {mod, { products_tracker_backend_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    cowboy
    ]},
   {env,[]},
   {modules, []},
