@@ -1,9 +1,16 @@
 products_tracker_backend
 =====
 
-An OTP application
+# Dependencies
+- Erlang 21
+- Cassandra 2.2.13
 
 Build
 -----
 
-    $ rebar3 compile
+    $ make deps
+
+Run
+----
+
+    $ make
