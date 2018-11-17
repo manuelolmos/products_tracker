@@ -1,4 +1,4 @@
--module(products_tracker_backend_sup).
+-module(ptracker_sup).
 -behaviour(supervisor).
 
 -export([

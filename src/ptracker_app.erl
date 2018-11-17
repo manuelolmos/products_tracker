@@ -1,4 +1,4 @@
--module(products_tracker_backend_app).
+-module(ptracker_app).
 -behaviour(application).
 
 -export([start/2,
@@ -13,7 +13,7 @@ start(_StartType, _StartArgs) ->
     {ok, _} = cowboy:start_clear(http, [{port, 8080}], #{
                                                          env => #{dispatch => Dispatch}
                                                         }),
-    products_tracker_backend_sup:start_link().
+    ptracker_sup:start_link().
 
 stop(_State) ->
     ok.
