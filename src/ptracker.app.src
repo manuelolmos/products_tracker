@@ -10,7 +10,8 @@
     cqerl,
     lz4,
     uuid,
-    pooler
+    pooler,
+    lager
    ]},
   {env,[]},
   {modules, []},
