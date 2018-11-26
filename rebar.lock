@@ -1,3 +1,4 @@
+{"1.1.0",
 [{<<"cowboy">>,
   {git,"https://github.com/ninenines/cowboy",
        {ref,"44d96ed9be3818f5540a16117223c505800dcc21"}},
@@ -10,6 +11,8 @@
   {git,"https://github.com/matehat/cqerl.git",
        {ref,"1bb6844e50ca6aa44d1db9c126ba09850ee75bd0"}},
   0},
+ {<<"goldrush">>,{pkg,<<"goldrush">>,<<"0.1.9">>},1},
+ {<<"lager">>,{pkg,<<"lager">>,<<"3.5.1">>},0},
  {<<"lz4">>,
   {git,"https://github.com/szktty/erlang-lz4.git",
        {ref,"6bc5efe93bab327788bcde24374f16044b549dd8"}},
@@ -41,4 +44,9 @@
  {<<"uuid">>,
   {git,"https://github.com/okeuday/uuid",
        {ref,"23167ed8689f656ea6765572215a40b9856d7886"}},
-  0}].
+  0}]}.
+[
+{pkg_hash,[
+ {<<"goldrush">>, <<"F06E5D5F1277DA5C413E84D5A2924174182FB108DABB39D5EC548B27424CD106">>},
+ {<<"lager">>, <<"63897A61AF646C59BB928FEE9756CE8BDD02D5A1A2F3551D4A5E38386C2CC071">>}]}
+].
