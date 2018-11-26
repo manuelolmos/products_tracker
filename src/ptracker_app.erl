@@ -7,7 +7,8 @@
 start(_StartType, _StartArgs) ->
     Dispatch = cowboy_router:compile([
                                       {'_', [
-                                             {"/products", products_handler, []}
+                                             {"/products", products_handler, []},
+                                             {"/products/[:id]", products_handler_id, []}
                                             ]}
                                      ]),
     {ok, _} = cowboy:start_clear(http, [{port, 8080}], #{
