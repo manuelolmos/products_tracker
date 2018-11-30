@@ -11,7 +11,8 @@
     lz4,
     uuid,
     pooler,
-    lager
+    lager,
+    jsx
    ]},
   {env,[]},
   {modules, []},
