@@ -10,6 +10,6 @@ init(Req0 = #{method := <<"POST">>}, State) ->
     Product = jsx:decode(Data),
     #{<<"name">> := Name, <<"date">> := Date, <<"prize">> := Prize, <<"seller">> := Seller} = maps:from_list(Product),
     product:create(Name, Prize, Date, Seller),
-    {ok, cowboy_req:reply(201, #{<<"content-type">> => <<"text/plain">>}, <<"product created">>, Req1), State};
+    {ok, cowboy_req:reply(201, #{<<"content-type">> => <<"application/json">>}, Data, Req1), State};
 init(Req0, State) ->
     {ok, cowboy_req:reply(400, Req0), State}.

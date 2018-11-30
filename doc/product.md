@@ -57,6 +57,13 @@ content-length: 15
 content-type: text/plain
 date: Fri, 30 Nov 2018 02:53:07 GMT
 server: Cowboy
+
+{
+   "name":"milk",
+   "date":"30/10",
+   "prize":32,
+   "seller":"coto"
+}
 ```
 
 ## UPDATE product:
