@@ -8,16 +8,25 @@ init(Req0 = #{method := <<"GET">>}, State) ->
             Json = jsx:encode(Products),
             {ok, cowboy_req:reply(200, #{<<"content-type">> => <<"application/json">>}, Json, Req0), State};
         ProductId ->
-            {ok, Product} = product:get(ProductId),
-            Json = jsx:encode(Product),
-            {ok, cowboy_req:reply(200, #{<<"content-type">> => <<"application/json">>}, Json, Req0), State}
+            case product:get(ProductId) of
+                {ok, Product} ->
+                    Json = jsx:encode(Product),
+                    {ok, cowboy_req:reply(200, #{<<"content-type">> => <<"application/json">>}, Json, Req0), State};
+                {error, not_found} ->
+                    {ok, cowboy_req:reply(404, Req0), State}
+            end
     end;
 init(Req0 = #{method := <<"POST">>}, State) ->
     {ok, Data, Req1} = cowboy_req:read_body(Req0),
     Product = jsx:decode(Data),
     #{<<"name">> := Name, <<"date">> := Date, <<"prize">> := Prize, <<"seller">> := Seller} = maps:from_list(Product),
-    product:create(Name, Prize, Date, Seller),
-    {ok, cowboy_req:reply(201, #{<<"content-type">> => <<"application/json">>}, Data, Req1), State};
+    case product:get(Name) of
+        {ok, Product} ->
+            {ok, cowboy_req:reply(400, Req0), State};
+        {error, not_found} ->
+            product:create(Name, Prize, Date, Seller),
+            {ok, cowboy_req:reply(201, #{<<"content-type">> => <<"application/json">>}, Data, Req1), State}
+    end;
 init(Req0 = #{method := <<"PUT">>}, State) ->
     case cowboy_req:binding(id, Req0) of
         undefined ->
