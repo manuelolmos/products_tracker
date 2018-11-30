@@ -47,7 +47,7 @@ server: Cowboy
 }
 ```
 
-## POST product:
+## CREATE product:
 
 ```
 $ curl -i -X POST http://localhost:8080/products -d '{"name":"milk","date":"30/10","prize":32,"seller":"coto"}'
@@ -56,6 +56,16 @@ HTTP/1.1 201 Created
 content-length: 15
 content-type: text/plain
 date: Fri, 30 Nov 2018 02:53:07 GMT
+server: Cowboy
+```
+
+## UPDATE product:
+
+```
+$ curl -i -X PUT http://localhost:8080/products/milk -d '{"name":"milk","date":"30/10","prize":4,"seller":"jumbo"}'
+HTTP/1.1 204 No Content
+content-length: 0
+date: Fri, 30 Nov 2018 03:05:59 GMT
 server: Cowboy
 ```
 
