@@ -12,3 +12,6 @@ Backend for [products_tracker_app](https://github.com/manuelolmos/products_track
 ## Run
 
     $ make
+
+## Documentation
+[Product Resource doc](https://github.com/manuelolmos/products_tracker/blob/master/doc/product.md)
