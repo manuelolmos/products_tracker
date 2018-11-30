@@ -2,15 +2,17 @@
 
 GET all products:
 
-Request: curl -i http://localhost:8080/products/
-
-Response:
+[source,bash]
+----
+$ curl -i http://localhost:8080/products/
 
 HTTP/1.1 200 OK
 content-length: 118
 content-type: application/json
 date: Fri, 30 Nov 2018 02:46:15 GMT
 server: Cowboy
+----
+
 ```json
 [
    {
